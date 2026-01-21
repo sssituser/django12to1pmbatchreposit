@@ -1,6 +1,23 @@
 {%extends 'myapp/base.html'%}
 {%block body_block%}
 <div class="container">
-    <p class="h1">Show Page</p>
+    <p class="h1 text-center">Show Page</p>
+    <section>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header bg-primary  ">
+                        <h3 class=" h2 text-center text-white">Student Details</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="h3"> ID :  {{ student.id }}</p>
+                        <p class="h3"> Name : {{ student.name }}</p>
+                        <p class="h3"> Age : {{ student.age }}</p>
+                        <p class="h3"> Email : {{ student.email }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 {%endblock%}

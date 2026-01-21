@@ -19,3 +19,27 @@ def register(request):
 def students(request):
     students = Student.objects.all() #select * from student
     return render(request, 'myapp/students.html', {'students': students})
+
+def edit(request, id):
+    student = Student.objects.get(pk=id)  #select * from student where id=?
+    if request.method == 'POST':
+        form = StudentForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save(commit=True)
+            return redirect('student_list')
+    else:
+        form = StudentForm(instance=student)
+    return render(request, 'myapp/edit.html', {'form': form, 'student': student})
+
+
+
+def show(request, id):
+    student = Student.objects.get(pk=id)
+    return render(request, 'myapp/show.html', {'student': student})
+
+def delete(request, id):
+    student = Student.objects.get(pk=id)
+    if request.method == 'POST':
+        student.delete()
+        return redirect('student_list')
+    return render(request, 'myapp/delete.html', {'student': student})

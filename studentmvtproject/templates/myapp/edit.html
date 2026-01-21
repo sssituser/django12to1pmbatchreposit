@@ -1,6 +1,13 @@
 {%extends 'myapp/base.html'%}
 {%block body_block%}
 <div class="container">
-    <p class="h1">Edit Page</p>
+    <p class="h1 text-center">Edit Page</p> 
+    <section>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success btn-sm">Update Student</button>
+        </form>
+    </section>
 </div>
 {%endblock%}
