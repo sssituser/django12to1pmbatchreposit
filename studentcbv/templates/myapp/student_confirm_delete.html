@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{%extends 'myapp/base.html'%}
+{%load widget_tweaks%}
+{%block content_block%}
+    <div class="container text-center mt-5">
+        <div class="row">
+            <div class="col-md-5">
+                <form method="post">
+                    {%csrf_token%}
+                    <div class="card">
+                    <div class="card-header text-white bg-primary">
+                        <p class="h3">Student Details</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                           <p class="h3"> Student ID  :  {{student.StudentId}}</p>
+                        </div>
+                        <div class="form-group">
+                           <p class="h3"> Student  Name  :  {{student.StudentName}}</p>
+                        </div>
+                        <div class="form-group">
+                            <p class="h3">Student Marks  :  {{student.StudentMarks}}</p>
+                        </div>
+                        <a href="{%url 'list'%}" class="btn btn-sm btn-warning float-right">Back</a>
+                        <button class="btn btn-danger btn-sm float-left">Delete</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{%endblock%}

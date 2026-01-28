@@ -13,7 +13,20 @@
                                 <p class="h2">Register Here</p>
                             </div>
                             <div class="card-body">
-                                {{form.as_p}}
+                                {% load widget_tweaks%}
+                                 <div class="form-group">
+                                    {{form.EmployeeID | add_class:"form-control" | attr:"placeholder : Employee ID"}}
+                                 </div>
+                                  <div class="form-group">
+                                    {{form.EmployeeName | add_class:"form-control" | attr:"placeholder : Employee Name"}}
+                                 </div>
+
+                                  <div class="form-group">
+                                    {{form.EmployeeSalary | add_class:"form-control" | attr:"placeholder : Employee Salary"}}
+                                 </div>
+                                  <div class="form-group">
+                                    {{form.EmployeeDept | add_class:"form-control" | attr:"placeholder : Employee Dept"}}
+                                 </div>
                                  <button class="btn btn-sm btn-primary rounded-pill ">Register</button>
                             </div>
                     </div>

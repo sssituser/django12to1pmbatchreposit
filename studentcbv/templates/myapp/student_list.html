@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{%extends 'myapp/base.html'%}
+{%load widget_tweaks%}
+{%block content_block%}
+    <div class="container">
+        <section>
+            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus odit omnis officiis sed, culpa ex voluptates iure soluta atque incidunt quia adipisci, esse unde voluptate obcaecati inventore enim nisi illo blanditiis velit? Magni nesciunt corrupti laudantium cum in consectetur pariatur rem animi eius, cumque eveniet officia est quae, consequatur fugit! Minus nulla mollitia adipisci ea blanditiis incidunt, saepe libero praesentium.</p>
+            <a href="/create" class="btn btn-sm btn-success">Create Student</a>
+        </section>
+        <section class="text-center">
+            {%if student_list%}
+                    <p class="h1">Records Found</p>
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th>Student ID</th>
+                                <th>Student Name</th>
+                                <th>Student Marks</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for student in student_list%}
+                                <tr>
+                                    <td>{{student.StudentId}}</td>
+                                    <td>{{student.StudentName}}</td>
+                                    <td>{{student.StudentMarks}}</td>
+                                    <td>
+
+
+                                        <a href="/{{student.id}}" >
+                                            <i class="fa fa-eye text-primary fa-2x mr-3"></i>
+                                        </a>
+                                         <a href="edit/{{student.id}}" >
+                                            <i class="fa fa-pencil text-warning fa-2x mr-3"></i>
+                                        </a>
+
+                                        <a href="delete/{{student.id}}" >
+                                            <i class="fa fa-trash text-danger fa-2x"></i>
+                                        </a>
+
+                                        
+                                    </td>
+                                   
+                                </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+
+
+
+            {%else%}
+                    <p class="h1 text-danger text-center">Records Not Found</p>
+            {%endif%}
+        </section>
+    </div>
+
+
+{%endblock%}
