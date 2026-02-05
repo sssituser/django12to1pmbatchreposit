@@ -1,8 +1,10 @@
 from django.shortcuts import render,redirect
 from myapp.models import Student
 from myapp.forms import StudentForm
+from django.contrib.auth.decorators import *
 # Create your views here.
 
+@login_required
 def register(request):
     if request.method == 'POST':
         form = StudentForm(request.POST)

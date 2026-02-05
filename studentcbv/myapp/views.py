@@ -1,6 +1,8 @@
 from django.urls import reverse_lazy
 from django.views.generic import *
 from myapp.models import *
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 class StudentList(ListView):
