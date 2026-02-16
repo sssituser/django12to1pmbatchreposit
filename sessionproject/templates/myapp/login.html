@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <!-- Font Awesome (icons required by MDB) -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+
+<!-- Google Font (Roboto — MDB default font) -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+
+<!-- MDBootstrap CSS -->
+<link
+  href="https://cdn.jsdelivr.net/npm/mdb-ui-kit@7.3.2/css/mdb.min.css"
+  rel="stylesheet"
+/>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-5">
+                <div class="card animate__animated animate__jackInTheBox">
+                    <div class="card-header bg-primary text-white">
+                      <p class="h2 text-center">Login Here </p>
+                    </div>
+                    <div class="card-body bg-info">
+                        <form action="" method="post">
+                            {%csrf_token%}
+                           <div class="mb-3">
+                            <input type="text" name="uname" class="form-control" placeholder="User Name">
+                           </div>
+                           <div class="mb-3">
+                            <input type="password" name="pwd" class="form-control" placeholder="User Name">
+                           </div>
+                            <button class="btn btn-primary btn-sm">Login</button>
+                            <br>
+                            <label for="" class="text-danger">{{error}}</label>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
