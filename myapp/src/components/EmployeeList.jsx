@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import axios from 'axios'
 function EmployeeList() {
-
+ let navi = useNavigate();
   let[employees,setEmployees]=useState([]);
     
   useEffect(()=>{
@@ -14,7 +14,17 @@ function EmployeeList() {
       alert(error)
     })
   });
-
+function del(id){
+  axios.delete(`http://localhost:9000/employees/${id}`)
+  .then(()=>{
+    alert("Employee deleted")
+    navi('/')
+    
+  })
+  .catch((error)=>{
+    alert(error)
+  })
+}
 
   return (
    <React.Fragment>
@@ -51,9 +61,10 @@ function EmployeeList() {
                                 <img src={emp.eimage} className='img-fluid' style={{width:150,height:100}}/>
                               </td>
                               <td>
-                                <Link to={`/find/${emp.id}`} className='mr-3'>Find</Link>
-                                <Link to={`/edit/${emp.id}`} className='mr-3'>Edit</Link>
-                                <Link>Delete</Link>
+                                <Link to={`/find/${emp.id}`} className='mr-3'><i className='fa fa-eye text-white fa-2x'></i></Link>
+                                
+                                <Link to={`/edit/${emp.id}`} className='mr-3'><i className='fa fa-pen text-white fa-2x'></i></Link>
+                                <i onClick={()=>del(emp.id)} className='fa fa-trash-can text-white fa-2x'></i>
                               </td>
                             </tr>
                           )
